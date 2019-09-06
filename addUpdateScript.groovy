@@ -45,7 +45,7 @@ def file = new File(options.f)
 assert file.exists()
 
 def host = options.h ?: 'http://localhost:8081'
-def resource = 'service'
+def resource = 'service/siesta'
 
 ScriptClient scripts = new ResteasyClientBuilder()
 .build()
@@ -60,7 +60,8 @@ boolean newScript = true
 try {
     scripts.read(name)
     newScript = false
-    println "Existing Script named '$name' will be updated"
+    println "Existing Script named '$name' will be updated??????NO"
+    return
 }
 catch (NotFoundException e) {
     println "Script named '$name' will be created"
